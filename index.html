@@ -53,6 +53,9 @@
   nav a { font-size: 0.95rem; color: var(--ink-soft); transition: color 0.2s; }
   nav a:hover { color: var(--clay-dark); }
   .nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--ink); }
+  .header-actions { display: flex; align-items: center; gap: 20px; }
+  .header-phone { font-size: 0.95rem; font-weight: 600; color: var(--ink); white-space: nowrap; transition: color 0.2s; }
+  .header-phone:hover { color: var(--clay-dark); }
 
   /* Hero */
   .hero {
@@ -220,7 +223,10 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a href="#contact" class="btn" style="padding:10px 24px;">Get in Touch</a>
+    <div class="header-actions">
+      <a href="tel:+15132223344" class="header-phone">513-222-33-44</a>
+      <a href="#contact" class="btn" style="padding:10px 24px;">Get in Touch</a>
+    </div>
   </div>
 </header>
 
