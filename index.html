@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Nest Design | Interior Design Studio</title>
+<meta name="description" content="Bright Nest Design — warm, thoughtful interior design for homes that feel like you.">
+<style>
+  :root {
+    --cream: #faf6f0;
+    --cream-dark: #f0e8dc;
+    --clay: #c8836a;
+    --clay-dark: #a8664f;
+    --sage: #8a9a7e;
+    --ink: #3a332c;
+    --ink-soft: #6b6055;
+    --line: #e4d9c9;
+    --white: #ffffff;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 246, 240, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px;
+  }
+  .logo { font-family: Georgia, serif; font-size: 1.4rem; letter-spacing: 0.5px; }
+  .logo span { color: var(--clay); }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav a { font-size: 0.95rem; color: var(--ink-soft); transition: color 0.2s; }
+  nav a:hover { color: var(--clay-dark); }
+  .nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--ink); }
+
+  /* Hero */
+  .hero {
+    padding: 96px 0 88px;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+  }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 22px; }
+  .hero h1 em { font-style: italic; color: var(--clay-dark); }
+  .hero p { font-size: 1.1rem; color: var(--ink-soft); max-width: 480px; margin-bottom: 32px; }
+  .btn {
+    display: inline-block; padding: 14px 30px; border-radius: 999px;
+    background: var(--clay); color: var(--white); font-size: 0.95rem;
+    letter-spacing: 0.3px; transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--clay-dark); transform: translateY(-1px); }
+  .btn.outline {
+    background: transparent; border: 1.5px solid var(--ink); color: var(--ink);
+    margin-left: 14px;
+  }
+  .btn.outline:hover { background: var(--ink); color: var(--white); }
+  .hero-art {
+    aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden;
+    background: linear-gradient(135deg, var(--sage) 0%, #b5c2a8 40%, var(--clay) 100%);
+    position: relative;
+  }
+  .hero-art::after {
+    content: "";
+    position: absolute; inset: 18px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: calc(var(--radius) - 4px);
+  }
+
+  section { padding: 88px 0; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem;
+    color: var(--clay-dark); font-weight: 600; margin-bottom: 12px;
+  }
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  .section-head p { color: var(--ink-soft); margin-top: 14px; font-size: 1.05rem; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* Services */
+  .services { background: var(--white); }
+  .service-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .service-card {
+    padding: 36px 30px; background: var(--cream); border-radius: var(--radius);
+    border: 1px solid var(--line); transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(58,51,44,0.08); }
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--clay); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 20px;
+  }
+  .service-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+  .service-card p { color: var(--ink-soft); font-size: 0.98rem; }
+
+  /* Portfolio */
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .portfolio-item {
+    border-radius: var(--radius); overflow: hidden; aspect-ratio: 1/1;
+    position: relative; cursor: pointer;
+  }
+  .portfolio-item .swatch {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; padding: 22px;
+    color: var(--white); font-family: Georgia, serif; font-size: 1.15rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 45%);
+  }
+  .portfolio-item::before {
+    content: ""; position: absolute; inset: 0;
+  }
+  .p1::before { background: linear-gradient(135deg, #d8b79c, #c8836a); }
+  .p2::before { background: linear-gradient(135deg, #a9b79a, #8a9a7e); }
+  .p3::before { background: linear-gradient(135deg, #e3d3c1, #c8a988); }
+  .p4::before { background: linear-gradient(135deg, #b9c7bd, #94a693); }
+  .p5::before { background: linear-gradient(135deg, #d9a98d, #a8664f); }
+  .p6::before { background: linear-gradient(135deg, #ded2c3, #b7a488); }
+
+  /* About */
+  .about { background: var(--white); }
+  .about .wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; }
+  .about-art {
+    aspect-ratio: 1/1; border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--cream-dark), var(--sage));
+  }
+  .about-text p { color: var(--ink-soft); margin-bottom: 16px; font-size: 1.05rem; }
+  .stats { display: flex; gap: 40px; margin-top: 32px; }
+  .stat h3 { font-size: 2rem; color: var(--clay-dark); }
+  .stat span { font-size: 0.9rem; color: var(--ink-soft); }
+
+  /* Testimonial */
+  .testimonial { background: var(--cream-dark); text-align: center; }
+  .testimonial blockquote {
+    font-family: Georgia, serif; font-size: 1.6rem; font-style: italic;
+    max-width: 720px; margin: 0 auto 20px; line-height: 1.5;
+  }
+  .testimonial cite { color: var(--ink-soft); font-style: normal; font-size: 0.95rem; }
+
+  /* Contact */
+  .contact { background: var(--white); }
+  .contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .contact-info h3 { font-size: 1.1rem; margin: 22px 0 6px; }
+  .contact-info p { color: var(--ink-soft); }
+  form { display: flex; flex-direction: column; gap: 16px; }
+  input, textarea {
+    padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--cream); font-family: inherit; font-size: 0.98rem; color: var(--ink);
+  }
+  input:focus, textarea:focus { outline: 1.5px solid var(--clay); }
+  textarea { resize: vertical; min-height: 120px; }
+  form .btn { align-self: flex-start; border: none; cursor: pointer; }
+
+  footer {
+    background: var(--ink); color: var(--cream);
+    padding: 48px 0 28px;
+  }
+  footer .wrap {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  footer .logo { color: var(--cream); }
+  footer .logo span { color: var(--clay); }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { color: #c9c1b6; font-size: 0.9rem; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    text-align: center; font-size: 0.85rem; color: #9b9285;
+    margin-top: 32px; padding-top: 24px; border-top: 1px solid #4c443a;
+  }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+    .nav-toggle { display: block; }
+    .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; }
+    .hero-art { order: -1; }
+    .service-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 20px; }
+    .service-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .btn.outline { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+    .stats { flex-wrap: wrap; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">Bright Nest <span>Design</span></a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn" style="padding:10px 24px;">Get in Touch</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Interior Design Studio</p>
+      <h1>Spaces that feel like <em>home</em>, designed with intention</h1>
+      <p>Bright Nest Design creates warm, livable interiors that reflect who you are — blending thoughtful function with timeless, soulful style.</p>
+      <a href="#contact" class="btn">Book a Consultation</a>
+      <a href="#portfolio" class="btn outline">View Our Work</a>
+    </div>
+    <div class="hero-art" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">What We Offer</p>
+      <h2>Design services for every room and reason</h2>
+      <p>From a single-room refresh to a full home transformation, we tailor our process to your space, budget, and lifestyle.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h3>Full Home Design</h3>
+        <p>End-to-end interior design covering layout, furnishings, lighting, and finishes for a cohesive home.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◈</div>
+        <h3>Room Refresh</h3>
+        <p>Focused styling and updates for a single space — perfect for a living room, bedroom, or home office.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✧</div>
+        <h3>Design Consultation</h3>
+        <p>A one-on-one session with expert guidance on color, layout, and furniture to get you unstuck.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◇</div>
+        <h3>Renovation Planning</h3>
+        <p>Design direction and material selection for kitchens, bathrooms, and structural remodels.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✤</div>
+        <h3>Staging &amp; Styling</h3>
+        <p>Warm, market-ready staging that helps homes sell faster and shine in photos and showings.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✥</div>
+        <h3>Custom Furnishing</h3>
+        <p>Sourcing and curation of furniture, textiles, and decor tailored to your taste and budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Our Work</p>
+      <h2>Recent nests we've brightened</h2>
+      <p>A glimpse at the homes we've had the privilege to design.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item p1"><div class="swatch">Maple Street Living Room</div></div>
+      <div class="portfolio-item p2"><div class="swatch">Cedar Grove Kitchen</div></div>
+      <div class="portfolio-item p3"><div class="swatch">Willow Loft Bedroom</div></div>
+      <div class="portfolio-item p4"><div class="swatch">Birchwood Home Office</div></div>
+      <div class="portfolio-item p5"><div class="swatch">Aspen House Dining</div></div>
+      <div class="portfolio-item p6"><div class="swatch">Hollow Creek Bathroom</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-art" aria-hidden="true"></div>
+    <div class="about-text">
+      <p class="eyebrow">Our Story</p>
+      <h2>Designing homes with warmth, one room at a time</h2>
+      <p>Bright Nest Design was founded on a simple belief: your home should feel as good as it looks. We combine considered design principles with an eye for comfort, creating spaces that welcome you in at the end of every day.</p>
+      <p>Our small, dedicated team works closely with each client — listening first, designing second — to craft interiors that are unmistakably yours.</p>
+      <div class="stats">
+        <div class="stat"><h3>120+</h3><span>Homes Designed</span></div>
+        <div class="stat"><h3>9</h3><span>Years of Craft</span></div>
+        <div class="stat"><h3>98%</h3><span>Client Satisfaction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="wrap">
+    <blockquote>"Bright Nest Design turned our house into the home we didn't know we wanted. Every corner feels intentional and warm."</blockquote>
+    <cite>— Hannah R., Maple Street Project</cite>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-info">
+      <p class="eyebrow">Get in Touch</p>
+      <h2>Let's design your nest</h2>
+      <p style="color:var(--ink-soft); margin-top:14px;">Tell us a little about your space and we'll be in touch to schedule a consultation.</p>
+      <h3>Email</h3>
+      <p>hello@brightnestdesign.com</p>
+      <h3>Phone</h3>
+      <p>(555) 019-2837</p>
+      <h3>Studio</h3>
+      <p>128 Maple Street, Portland, OR</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Thanks for reaching out! We will be in touch soon.'); this.reset();">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo">Bright Nest <span>Design</span></a>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="wrap footer-bottom">
+    &copy; 2026 Bright Nest Design. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
