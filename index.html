@@ -56,8 +56,15 @@
     display: flex; align-items: center; justify-content: space-between;
     height: 76px;
   }
-  .logo { font-family: Georgia, serif; font-size: 1.4rem; letter-spacing: 0.5px; }
+  .logo-block { display: flex; align-items: center; gap: 12px; }
+  .logo-mark { height: 38px; width: auto; display: block; }
+  .logo-text { display: flex; flex-direction: column; gap: 2px; }
+  .logo { font-family: Georgia, serif; font-size: 1.4rem; letter-spacing: 0.5px; line-height: 1; }
   .logo span { color: var(--clay); }
+  .logo-sub {
+    font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); line-height: 1;
+  }
   nav ul { list-style: none; display: flex; gap: 36px; }
   nav a { font-size: 0.95rem; color: var(--ink-soft); transition: color 0.2s; }
   nav a:hover { color: var(--clay-dark); }
@@ -261,6 +268,7 @@
   }
   footer .logo { color: var(--cream); }
   footer .logo span { color: var(--clay); }
+  .footer-logo-sub { color: #c9c1b6; }
   .footer-links { display: flex; gap: 24px; list-style: none; }
   .footer-links a { color: #c9c1b6; font-size: 0.9rem; }
   .footer-links a:hover { color: var(--white); }
@@ -288,7 +296,13 @@
 
 <header>
   <div class="wrap">
-    <a href="#top" class="logo">Bright Nest <span>Design</span></a>
+    <a href="#top" class="logo-block">
+      <img class="logo-mark" src="logo-mark.png" alt="" width="453" height="412">
+      <div class="logo-text">
+        <div class="logo"><span>Bright</span> Nest</div>
+        <div class="logo-sub">Design</div>
+      </div>
+    </a>
     <nav>
       <ul>
         <li><a href="#services">Services</a></li>
@@ -476,7 +490,13 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo">Bright Nest <span>Design</span></a>
+    <a href="#top" class="logo-block">
+      <img class="logo-mark" src="logo-mark.png" alt="" width="453" height="412">
+      <div class="logo-text">
+        <div class="logo footer-logo"><span>Bright</span> Nest</div>
+        <div class="logo-sub footer-logo-sub">Design</div>
+      </div>
+    </a>
     <ul class="footer-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
