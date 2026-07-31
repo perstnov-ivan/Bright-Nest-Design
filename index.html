@@ -170,7 +170,7 @@
   .portfolio-item.has-photo:hover::before { transform: scale(1.06); }
   .p1::before { background: url('render.jpg') center/cover; }
   .p2::before { background: url('closet-couple-1.jpg') center/cover; }
-  .p3::before { background: linear-gradient(135deg, #e3d3c1, #c8a988); }
+  .p3::before { background: url('kitchen-living-1.jpg') center/cover; }
   .p4::before { background: linear-gradient(135deg, #b9c7bd, #94a693); }
   .p5::before { background: linear-gradient(135deg, #ab97bd, #786192); }
   .p6::before { background: linear-gradient(135deg, #ded2c3, #b7a488); }
@@ -365,7 +365,7 @@
     <div class="portfolio-grid">
       <div class="portfolio-item p1 has-photo" onclick="openLightbox(0)"><div class="swatch">Modern Living Room, India</div></div>
       <div class="portfolio-item p2 has-photo" onclick="openLightbox(1)"><div class="swatch">Closet for a Couple</div></div>
-      <div class="portfolio-item p3"><div class="swatch">Willow Loft Bedroom</div></div>
+      <div class="portfolio-item p3 has-photo" onclick="openLightbox(2)"><div class="swatch">Open Space Kitchen + Living Room</div></div>
       <div class="portfolio-item p4"><div class="swatch">Birchwood Home Office</div></div>
       <div class="portfolio-item p5"><div class="swatch">Aspen House Dining</div></div>
       <div class="portfolio-item p6"><div class="swatch">Hollow Creek Bathroom</div></div>
@@ -459,6 +459,10 @@
     [
       { src: 'closet-couple-1.jpg', caption: 'Closet for a Couple — walk-in closet' },
       { src: 'closet-couple-2.jpg', caption: 'Closet for a Couple — dressing area' }
+    ],
+    [
+      { src: 'kitchen-living-1.jpg', caption: 'Open Space Kitchen + Living Room' },
+      { src: 'kitchen-living-2.jpg', caption: 'Open Space Kitchen + Living Room' }
     ]
   ];
   var lightboxSetIndex = 0;
