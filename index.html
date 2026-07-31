@@ -169,7 +169,7 @@
   }
   .portfolio-item.has-photo:hover::before { transform: scale(1.06); }
   .p1::before { background: url('render.jpg') center/cover; }
-  .p2::before { background: linear-gradient(135deg, #b8a9c9, #9a86b0); }
+  .p2::before { background: url('closet-couple-1.jpg') center/cover; }
   .p3::before { background: linear-gradient(135deg, #e3d3c1, #c8a988); }
   .p4::before { background: linear-gradient(135deg, #b9c7bd, #94a693); }
   .p5::before { background: linear-gradient(135deg, #ab97bd, #786192); }
@@ -364,7 +364,7 @@
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-item p1 has-photo" onclick="openLightbox(0)"><div class="swatch">Modern Living Room, India</div></div>
-      <div class="portfolio-item p2"><div class="swatch">Cedar Grove Kitchen</div></div>
+      <div class="portfolio-item p2 has-photo" onclick="openLightbox(1)"><div class="swatch">Closet for a Couple</div></div>
       <div class="portfolio-item p3"><div class="swatch">Willow Loft Bedroom</div></div>
       <div class="portfolio-item p4"><div class="swatch">Birchwood Home Office</div></div>
       <div class="portfolio-item p5"><div class="swatch">Aspen House Dining</div></div>
@@ -451,14 +451,22 @@
 </div>
 
 <script>
-  var lightboxImages = [
-    { src: 'render.jpg', caption: 'Modern Living Room, India — final render' },
-    { src: 'scetch.jpg', caption: 'Modern Living Room, India — 3ds Max working file' }
+  var lightboxSets = [
+    [
+      { src: 'render.jpg', caption: 'Modern Living Room, India — final render' },
+      { src: 'scetch.jpg', caption: 'Modern Living Room, India — 3ds Max working file' }
+    ],
+    [
+      { src: 'closet-couple-1.jpg', caption: 'Closet for a Couple — walk-in closet' },
+      { src: 'closet-couple-2.jpg', caption: 'Closet for a Couple — dressing area' }
+    ]
   ];
+  var lightboxSetIndex = 0;
   var lightboxIndex = 0;
 
-  function openLightbox(index) {
-    lightboxIndex = index;
+  function openLightbox(setIndex) {
+    lightboxSetIndex = setIndex;
+    lightboxIndex = 0;
     updateLightbox();
     document.getElementById('lightbox').classList.add('open');
   }
@@ -466,11 +474,12 @@
     document.getElementById('lightbox').classList.remove('open');
   }
   function stepLightbox(delta) {
-    lightboxIndex = (lightboxIndex + delta + lightboxImages.length) % lightboxImages.length;
+    var set = lightboxSets[lightboxSetIndex];
+    lightboxIndex = (lightboxIndex + delta + set.length) % set.length;
     updateLightbox();
   }
   function updateLightbox() {
-    var item = lightboxImages[lightboxIndex];
+    var item = lightboxSets[lightboxSetIndex][lightboxIndex];
     document.getElementById('lightbox-img').src = item.src;
     document.getElementById('lightbox-caption').textContent = item.caption;
   }
