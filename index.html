@@ -171,7 +171,7 @@
   .p1::before { background: url('render.jpg') center/cover; }
   .p2::before { background: url('closet-couple-1.jpg') center/cover; }
   .p3::before { background: url('kitchen-living-1.jpg') center/cover; }
-  .p4::before { background: linear-gradient(135deg, #b9c7bd, #94a693); }
+  .p4::before { background: url('entry-zone-1.jpg') center/cover; }
   .p5::before { background: linear-gradient(135deg, #ab97bd, #786192); }
   .p6::before { background: linear-gradient(135deg, #ded2c3, #b7a488); }
 
@@ -366,7 +366,7 @@
       <div class="portfolio-item p1 has-photo" onclick="openLightbox(0)"><div class="swatch">Modern Living Room, India</div></div>
       <div class="portfolio-item p2 has-photo" onclick="openLightbox(1)"><div class="swatch">Closet for a Couple</div></div>
       <div class="portfolio-item p3 has-photo" onclick="openLightbox(2)"><div class="swatch">Open Space Kitchen + Living Room</div></div>
-      <div class="portfolio-item p4"><div class="swatch">Birchwood Home Office</div></div>
+      <div class="portfolio-item p4 has-photo" onclick="openLightbox(3)"><div class="swatch">Entry Zone</div></div>
       <div class="portfolio-item p5"><div class="swatch">Aspen House Dining</div></div>
       <div class="portfolio-item p6"><div class="swatch">Hollow Creek Bathroom</div></div>
     </div>
@@ -463,6 +463,10 @@
     [
       { src: 'kitchen-living-1.jpg', caption: 'Open Space Kitchen + Living Room' },
       { src: 'kitchen-living-2.jpg', caption: 'Open Space Kitchen + Living Room' }
+    ],
+    [
+      { src: 'entry-zone-1.jpg', caption: 'Entry Zone' },
+      { src: 'entry-zone-2.jpg', caption: 'Entry Zone' }
     ]
   ];
   var lightboxSetIndex = 0;
