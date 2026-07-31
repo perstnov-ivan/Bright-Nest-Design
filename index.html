@@ -172,7 +172,7 @@
   .p2::before { background: url('closet-couple-1.jpg') center/cover; }
   .p3::before { background: url('kitchen-living-1.jpg') center/cover; }
   .p4::before { background: url('entry-zone-2.jpg') center/cover; }
-  .p5::before { background: linear-gradient(135deg, #ab97bd, #786192); }
+  .p5::before { background: url('living-room-entry-1.jpg') center/cover; }
   .p6::before { background: linear-gradient(135deg, #ded2c3, #b7a488); }
 
   /* Lightbox */
@@ -367,7 +367,7 @@
       <div class="portfolio-item p2 has-photo" onclick="openLightbox(1)"><div class="swatch">Closet for a Couple</div></div>
       <div class="portfolio-item p3 has-photo" onclick="openLightbox(2)"><div class="swatch">Open Space Kitchen + Living Room</div></div>
       <div class="portfolio-item p4 has-photo" onclick="openLightbox(3)"><div class="swatch">Entry Zone</div></div>
-      <div class="portfolio-item p5"><div class="swatch">Aspen House Dining</div></div>
+      <div class="portfolio-item p5 has-photo" onclick="openLightbox(4)"><div class="swatch">Living Room + Entry</div></div>
       <div class="portfolio-item p6"><div class="swatch">Hollow Creek Bathroom</div></div>
     </div>
   </div>
@@ -468,6 +468,10 @@
     [
       { src: 'entry-zone-2.jpg', caption: 'Entry Zone' },
       { src: 'entry-zone-1.jpg', caption: 'Entry Zone' }
+    ],
+    [
+      { src: 'living-room-entry-1.jpg', caption: 'Living Room + Entry' },
+      { src: 'living-room-entry-2.jpg', caption: 'Living Room + Entry' }
     ]
   ];
   var lightboxSetIndex = 0;
