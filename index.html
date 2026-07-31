@@ -173,7 +173,7 @@
   .p3::before { background: url('kitchen-living-1.jpg') center/cover; }
   .p4::before { background: url('entry-zone-2.jpg') center/cover; }
   .p5::before { background: url('living-room-entry-1.jpg') center/cover; }
-  .p6::before { background: linear-gradient(135deg, #ded2c3, #b7a488); }
+  .p6::before { background: url('relax-zone-office-1.jpg') center/cover; }
 
   /* Lightbox */
   .lightbox {
@@ -368,7 +368,7 @@
       <div class="portfolio-item p3 has-photo" onclick="openLightbox(2)"><div class="swatch">Open Space Kitchen + Living Room</div></div>
       <div class="portfolio-item p4 has-photo" onclick="openLightbox(3)"><div class="swatch">Entry Zone</div></div>
       <div class="portfolio-item p5 has-photo" onclick="openLightbox(4)"><div class="swatch">Living Room + Entry</div></div>
-      <div class="portfolio-item p6"><div class="swatch">Hollow Creek Bathroom</div></div>
+      <div class="portfolio-item p6 has-photo" onclick="openLightbox(5)"><div class="swatch">Relax Zone for IT Company Office</div></div>
     </div>
   </div>
 </section>
@@ -473,6 +473,11 @@
     [
       { src: 'living-room-entry-1.jpg', caption: 'Living Room + Entry' },
       { src: 'living-room-entry-2.jpg', caption: 'Living Room + Entry' }
+    ],
+    [
+      { src: 'relax-zone-office-1.jpg', caption: 'Relax Zone for IT Company Office' },
+      { src: 'relax-zone-office-2.jpg', caption: 'Relax Zone for IT Company Office' },
+      { src: 'relax-zone-office-3.jpg', caption: 'Relax Zone for IT Company Office' }
     ]
   ];
   var lightboxSetIndex = 0;
